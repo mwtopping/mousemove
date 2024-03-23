@@ -5,10 +5,10 @@
 [node name="GameRoot" type="Node2D"]
 
 [node name="Icon2" parent="." instance=ExtResource("1_iu6xp")]
-position = Vector2(695, 501)
+position = Vector2(1096, 170)
 
 [node name="Icon3" parent="." instance=ExtResource("1_iu6xp")]
 position = Vector2(175, 151)
 
 [node name="Icon4" parent="." instance=ExtResource("1_iu6xp")]
-position = Vector2(214, 459)
+position = Vector2(627, 747)
