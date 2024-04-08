@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk810ndg2gl6m"]
+
+[ext_resource type="Script" path="res://Scenes/BH.gd" id="1_f6wh2"]
+
+[sub_resource type="Gradient" id="Gradient_nqqau"]
+offsets = PackedFloat32Array(0, 0.246667, 0.67, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_f6wh2")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+rotation = 0.0628319
+amount = 10000
+lifetime = 5.0
+randomness = 1.0
+lifetime_randomness = 0.35
+emission_shape = 4
+emission_points = PackedVector2Array(100, 0, 0, 100, 0, -100, -100, 0)
+emission_colors = PackedColorArray()
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+radial_accel_min = -10.0
+radial_accel_max = -4.0
+damping_max = 3.03
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_nqqau")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1000
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.59
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 917.69
+initial_velocity_max = 958.09

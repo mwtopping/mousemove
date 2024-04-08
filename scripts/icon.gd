@@ -5,6 +5,7 @@ var velocity = Vector2(0, 0)
 var acceleration = Vector2(0, 0)
 var drag = 1
 var max_speed = 500
+var rocket
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,8 +25,8 @@ func _process(delta):
 			self.acceleration = speed*direction
 
 			var angle = (get_viewport().get_mouse_position()-self.position).angle()
-
 			
+
 			self.rotation = angle+PI/2
 			
 	velocity += acceleration*delta
@@ -40,8 +41,10 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			self.drag = 1.0
+			get_node("rocket").emitting=true
 		else:
 			self.drag = 0.97
 			self.acceleration = Vector2(0, 0)
+			get_node("rocket").emitting=false
 	
 		
