@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwq024587eepg"]
+[gd_scene load_steps=5 format=3 uid="uid://bwq024587eepg"]
 
 [ext_resource type="Texture2D" uid="uid://c7vv5oax3en46" path="res://icon.svg" id="1_x6m2i"]
 [ext_resource type="Script" path="res://scripts/icon.gd" id="2_ighd4"]
@@ -7,14 +7,32 @@
 offsets = PackedFloat32Array(0, 0.0766667, 0.4, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 0.974744, 0.479615, 1.92523e-07, 1, 0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_q7ic6"]
+offsets = PackedFloat32Array(0, 0.0766667, 0.473333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.705911, 0.772938, 0.92565, 1, 0.980392, 0.827451, 0.278431, 1, 0, 0, 0, 1)
+
 [node name="Icon" type="Sprite2D"]
 scale = Vector2(0.335, 0.3)
-texture = ExtResource("1_x6m2i")
 script = ExtResource("2_ighd4")
 
-[node name="rocket" type="CPUParticles2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-161.194, 113.333)
+scale = Vector2(1, 1)
+zoom = Vector2(2, 2)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_x6m2i")
+
+[node name="rocket" type="CPUParticles2D" parent="sprite"]
 position = Vector2(0, 63.3333)
 rotation = 1.5708
+scale = Vector2(1, 1)
 emitting = false
 amount = 100
 randomness = 0.24
@@ -27,3 +45,22 @@ angle_max = 720.0
 scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_hyrup")
+
+[node name="boost" type="CPUParticles2D" parent="sprite"]
+position = Vector2(0, 63.3333)
+rotation = 1.5708
+scale = Vector2(1, 1)
+emitting = false
+amount = 400
+lifetime = 1.2
+randomness = 0.24
+lifetime_randomness = 1.0
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 610.97
+initial_velocity_max = 837.67
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_q7ic6")
