@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctbli7it03a08"]
+
+[ext_resource type="Script" path="res://Scenes/parcel.gd" id="1_88hap"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r2nw3"]
+
+[node name="parcel" type="Polygon2D"]
+material = SubResource("CanvasItemMaterial_r2nw3")
+polygon = PackedVector2Array(-2, -2, -2, 2, 2, 2, 2, -2)
+script = ExtResource("1_88hap")

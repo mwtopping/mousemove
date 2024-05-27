@@ -8,12 +8,19 @@ var max_speed = 350
 var rocket
 var boost
 var sprite
+#var spawnobj = load("res://Scenes/parcel.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Hello, I'm ", name)
 	print(self.rot_speed)
-
+	
+	
+	#for n in range(100):
+		#var tmp = spawnobj.instantiate()
+		#tmp.position.x = 1000*(randf()-0.5)
+		#tmp.position.y = 1000*(randf()-0.5)
+		#add_child(tmp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,6 +50,10 @@ func _process(delta):
 
 	position += velocity*delta
 	velocity *= drag
+	
+	
+	
+	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
