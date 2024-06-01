@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctbli7it03a08"]
 
-[ext_resource type="Script" path="res://Scenes/parcel.gd" id="1_88hap"]
+[ext_resource type="Script" path="res://scripts/parcel.gd" id="1_88hap"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r2nw3"]
 

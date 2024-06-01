@@ -50,11 +50,17 @@ func _process(delta):
 
 	position += velocity*delta
 	velocity *= drag
-	
+
 	
 	
 	
 func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_MINUS:
+			get_node("Camera").zoom *= 0.9
+		if event.keycode == KEY_EQUAL:
+			get_node("Camera").zoom *= 1.1
+			
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_LEFT:
