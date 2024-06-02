@@ -1,22 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcuitt5q1rnk1"]
+[gd_scene load_steps=4 format=3 uid="uid://bcuitt5q1rnk1"]
 
 [ext_resource type="Script" path="res://scripts/game_root.gd" id="1_0xyln"]
 [ext_resource type="PackedScene" uid="uid://bwq024587eepg" path="res://Scenes/icon.tscn" id="1_iu6xp"]
 [ext_resource type="PackedScene" uid="uid://ctbli7it03a08" path="res://Scenes/parcel.tscn" id="3_avi3j"]
-[ext_resource type="PackedScene" uid="uid://dc4kvbgvaewem" path="res://Scenes/star.tscn" id="5_oorv2"]
-[ext_resource type="Script" path="res://scripts/star.gd" id="6_bia07"]
-[ext_resource type="PackedScene" uid="uid://y0ay7im76p3w" path="res://Scenes/orbit.tscn" id="6_l2xns"]
 
 [node name="GameRoot" type="Node2D"]
 script = ExtResource("1_0xyln")
 
 [node name="Icon2" parent="." instance=ExtResource("1_iu6xp")]
-position = Vector2(1096, 170)
+position = Vector2(1, -136)
 
 [node name="parcel" parent="." instance=ExtResource("3_avi3j")]
-
-[node name="star" parent="." instance=ExtResource("5_oorv2")]
-position = Vector2(897, 358)
-script = ExtResource("6_bia07")
-
-[node name="orbit" parent="." instance=ExtResource("6_l2xns")]

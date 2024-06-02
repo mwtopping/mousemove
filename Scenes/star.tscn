@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dc4kvbgvaewem"]
+[gd_scene load_steps=2 format=3 uid="uid://dc4kvbgvaewem"]
 
-[node name="Polygon2D" type="Polygon2D"]
+[ext_resource type="Script" path="res://scripts/star.gd" id="1_vbq8s"]
+
+[node name="star" type="Polygon2D"]
+script = ExtResource("1_vbq8s")

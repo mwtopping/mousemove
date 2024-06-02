@@ -68,7 +68,7 @@ func _input(event):
 				get_node("sprite/rocket").emitting=true
 			if event.button_index == MOUSE_BUTTON_RIGHT and Input.is_mouse_button_pressed(1):
 				get_node("sprite/boost").emitting=true
-				self.max_speed = 500
+				self.max_speed = 650
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				get_node("Camera").zoom *= 1.1
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
