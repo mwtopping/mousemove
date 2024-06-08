@@ -8,6 +8,8 @@ func _ready():
 	self.locPos.x = 5000*(randf()-0.5)
 	self.locPos.y = 5000*(randf()-0.5)
 	self.position = locPos
+	
+	self.add_to_group("stars")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,6 +19,4 @@ func _process(delta):
 	var player = parent.get_node("Icon2")
 	var camera = player.get_node("Camera")
 	self.position = self.locPos + dist*camera.get_screen_center_position()
-	#self.position = self.locPos - 1.5*camera.global_position+player.global_position
-	#print(camera.position)
-
+	#self.position = self.locPos

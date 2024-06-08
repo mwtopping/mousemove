@@ -13,11 +13,11 @@ colors = PackedColorArray(1, 1, 1, 1, 0.705911, 0.772938, 0.92565, 1, 0.980392, 
 
 [node name="Icon" type="Sprite2D"]
 z_index = 9
-scale = Vector2(0.335, 0.3)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("2_ighd4")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(0, 63.3333)
+position = Vector2(2.08165e-12, 2.08165e-12)
 zoom = Vector2(2, 2)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -62,3 +62,5 @@ angle_max = 720.0
 scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_q7ic6")
+
+[node name="targeting" type="Line2D" parent="."]

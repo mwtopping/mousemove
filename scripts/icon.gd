@@ -8,19 +8,25 @@ var max_speed = 350
 var rocket
 var boost
 var sprite
+var jump_target
+var closest = null
+var camera
 #var spawnobj = load("res://Scenes/parcel.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Hello, I'm ", name)
 	print(self.rot_speed)
-	
-	
+	jump_target = get_node("targeting")
+	self.camera = get_node("Camera")
 	#for n in range(100):
 		#var tmp = spawnobj.instantiate()
 		#tmp.position.x = 1000*(randf()-0.5)
 		#tmp.position.y = 1000*(randf()-0.5)
 		#add_child(tmp)
+		
+	print(self.scale)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,9 +56,25 @@ func _process(delta):
 
 	position += velocity*delta
 	velocity *= drag
+	
 
-	
-	
+			
+			
+
+	if closest != null:
+		var _points = PackedVector2Array()
+		_points.append(Vector2(0, 0))
+		var endpoint = (self.closest.global_position-self.global_position)/self.scale
+		endpoint = (endpoint.length()-50)*endpoint.normalized()
+
+
+
+		if endpoint.length() > 1000:
+			self.closest = null
+			endpoint = Vector2(0, 0)
+			
+		_points.append(endpoint)
+		self.jump_target.points = _points			
 	
 func _input(event):
 	if event is InputEventKey:
@@ -83,4 +105,17 @@ func _input(event):
 			if event.button_index == MOUSE_BUTTON_RIGHT:	
 				get_node("sprite/boost").emitting=false
 				self.max_speed = 350
-		
+				
+				
+	if event is InputEventKey:
+		if event.keycode == KEY_Z and event.pressed:
+			
+			var mindist = 999999999
+			var allstars = get_tree().get_nodes_in_group("stars")
+			for s in allstars:
+				
+				var _dist = (self.global_position - s.global_position).length()
+
+				if _dist < mindist:
+					mindist = _dist
+					self.closest = s

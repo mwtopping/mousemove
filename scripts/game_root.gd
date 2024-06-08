@@ -14,6 +14,7 @@ func _ready():
 	print("Starting Star Instantiation")
 	self.system = star.instantiate()
 	add_child(self.system)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,3 +30,4 @@ func _input(event):
 			
 			self.system = star.instantiate()
 			add_child(self.system)
+			
