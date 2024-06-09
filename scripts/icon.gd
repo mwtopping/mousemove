@@ -126,3 +126,14 @@ func _input(event):
 				if _dist < mindist:
 					mindist = _dist
 					self.closest = s
+					
+
+		if event.keycode == KEY_SPACE and event.pressed:
+			if self.closest != null:
+				var allstars = get_tree().get_nodes_in_group("stars")
+				for s in allstars:
+					if s == self.closest:
+						s.go_away(self.closest.global_position, 2, true)
+					else: 
+						s.go_away(self.closest.global_position, 2, false)
+				
