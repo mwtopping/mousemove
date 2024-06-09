@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwq024587eepg"]
+[gd_scene load_steps=6 format=3 uid="uid://bwq024587eepg"]
 
 [ext_resource type="Texture2D" uid="uid://c7vv5oax3en46" path="res://icon.svg" id="1_x6m2i"]
 [ext_resource type="Script" path="res://scripts/icon.gd" id="2_ighd4"]
+[ext_resource type="Script" path="res://scripts/reticule.gd" id="3_4831q"]
 
 [sub_resource type="Gradient" id="Gradient_hyrup"]
 offsets = PackedFloat32Array(0, 0.0766667, 0.4, 1)
@@ -64,3 +65,7 @@ scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_q7ic6")
 
 [node name="targeting" type="Line2D" parent="."]
+z_index = -1
+
+[node name="reticule" type="Line2D" parent="."]
+script = ExtResource("3_4831q")

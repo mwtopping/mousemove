@@ -11,14 +11,18 @@ var sprite
 var jump_target
 var closest = null
 var camera
+var reticule
 #var spawnobj = load("res://Scenes/parcel.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Hello, I'm ", name)
 	print(self.rot_speed)
-	jump_target = get_node("targeting")
+	self.jump_target = get_node("targeting")
+	self.jump_target.default_color = Color(0.8, 0.8, 0.8)
 	self.camera = get_node("Camera")
+	self.reticule = get_node("reticule")
+	self.reticule.visible = false
 	#for n in range(100):
 		#var tmp = spawnobj.instantiate()
 		#tmp.position.x = 1000*(randf()-0.5)
@@ -65,12 +69,15 @@ func _process(delta):
 		var _points = PackedVector2Array()
 		_points.append(Vector2(0, 0))
 		var endpoint = (self.closest.global_position-self.global_position)/self.scale
+		self.reticule.position = endpoint
 		endpoint = (endpoint.length()-50)*endpoint.normalized()
+		self.reticule.visible = true
 
 
 
-		if endpoint.length() > 1000:
+		if endpoint.length() > 2000:
 			self.closest = null
+			self.reticule.visible = false
 			endpoint = Vector2(0, 0)
 			
 		_points.append(endpoint)
