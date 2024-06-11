@@ -33,10 +33,16 @@ func _input(event):
 			
 
 
-func create_new_stars():
-	for n in range(1000):
-		var tmp = spawnobj.instantiate()
-		add_child(tmp)
+func create_new_stars(pos):
+	#for n in range(1000):
+	#	var tmp = spawnobj.instantiate()
+	#	add_child(tmp)
 	print("Starting Star Instantiation")
 	self.system = star.instantiate()
+
 	add_child(self.system)
+	self.system.position = pos
+	
+func create_one_star():
+	var tmp = spawnobj.instantiate()
+	add_child(tmp)

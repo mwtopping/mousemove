@@ -83,12 +83,34 @@ func _process(delta):
 		_points.append(endpoint)
 		self.jump_target.points = _points			
 	
+	
+	
+
+	
+	
+	
+	
+	
+func reset_reticule():
+	var _points = PackedVector2Array()
+	_points.append(Vector2(0, 0))
+
+	self.closest = null
+	self.reticule.visible = false
+	var endpoint = Vector2(0, 0)
+		
+	_points.append(endpoint)
+	self.jump_target.points = _points	
+	
+	
 func _input(event):
 	if event is InputEventKey:
-		if event.keycode == KEY_MINUS:
-			get_node("Camera").zoom *= 0.9
-		if event.keycode == KEY_EQUAL:
-			get_node("Camera").zoom *= 1.1
+		if event.keycode == KEY_MINUS and event.pressed:
+			if get_node("Camera").zoom.x > 1:
+				get_node("Camera").zoom *= 0.9
+		if event.keycode == KEY_EQUAL and event.pressed:
+			if get_node("Camera").zoom.x < 3:
+				get_node("Camera").zoom *= 1.1
 			
 	if event is InputEventMouseButton:
 		if event.is_pressed():
@@ -120,7 +142,8 @@ func _input(event):
 			var mindist = 999999999
 			var allstars = get_tree().get_nodes_in_group("stars")
 			for s in allstars:
-				
+				if s.dist > 0.7:
+					continue
 				var _dist = (self.global_position - s.global_position).length()
 
 				if _dist < mindist:
@@ -136,4 +159,8 @@ func _input(event):
 						s.go_away(self.closest.global_position, 2, true)
 					else: 
 						s.go_away(self.closest.global_position, 2, false)
+				var current_star = get_parent().system
+				current_star.go_away(self.closest.global_position, 2)
+				print(current_star)
+
 				
