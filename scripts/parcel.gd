@@ -27,7 +27,7 @@ func _process(delta):
 	if is_jumping:
 		var direction = self.jump_speed*((self.global_position - self.jump_point).normalized())
 		self.locPos += direction
-		self.jump_speed = pow(self.jump_speed, 1.05)
+		self.jump_speed = pow(self.jump_speed, 1.03)
 
 
 func go_away(center, speed, is_target):
