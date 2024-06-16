@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwq024587eepg"]
+[gd_scene load_steps=8 format=3 uid="uid://bwq024587eepg"]
 
 [ext_resource type="Texture2D" uid="uid://c7vv5oax3en46" path="res://icon.svg" id="1_x6m2i"]
 [ext_resource type="Script" path="res://scripts/icon.gd" id="2_ighd4"]
+[ext_resource type="Shader" path="res://shaders/backgroundstars.gdshader" id="2_ker5m"]
 [ext_resource type="Script" path="res://scripts/reticule.gd" id="3_4831q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0e2v"]
+shader = ExtResource("2_ker5m")
+shader_parameter/blue = 2.725
 
 [sub_resource type="Gradient" id="Gradient_hyrup"]
 offsets = PackedFloat32Array(0, 0.0766667, 0.4, 1)
@@ -26,6 +31,14 @@ drag_left_margin = 0.35
 drag_top_margin = 0.35
 drag_right_margin = 0.35
 drag_bottom_margin = 0.35
+
+[node name="ColorRect" type="ColorRect" parent="Camera"]
+z_index = -10
+material = SubResource("ShaderMaterial_i0e2v")
+offset_left = -3673.0
+offset_top = -3217.0
+offset_right = 3860.0
+offset_bottom = 3210.0
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_x6m2i")

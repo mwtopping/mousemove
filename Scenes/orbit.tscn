@@ -2,3 +2,4 @@
 
 [node name="orbit" type="Line2D"]
 z_index = -2
+points = PackedVector2Array(4550, 1925)
